@@ -34,11 +34,13 @@ def print_to_terminal():
     stream.sample(languages=language)
 
 def pull_down_tweets(screen_name):
+    #pass authentification
     api = API(auth)
-    # count return number of tweets
+    # count-  returns number of tweets
     tweets = api.user_timeline(screen_name=screen_name, count = 200)
     #view tweets in json format
     for tweet in tweets:
+        #access internal json variable
         print(json.dumps(tweet._json, indent = 4))
 
 if __name__== '__main__':
