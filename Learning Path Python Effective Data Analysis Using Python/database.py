@@ -32,3 +32,26 @@ Session = sessionmaker(bind=engine, autoflush=False)
 
 #create a session
 session = Session()
+
+hashtag_tweet = Table('hashtag_tweet', Base.methadata,
+                      Column('hashtag_id', Integer, ForeignKey('hashtag.id'), nullable = False),
+                      Column('tweet_id', Integer, ForeignKey('tweets.id'), nullable=False))
+
+class Tweet(Base):
+    __tablename__ = 'tweets'
+    id = Column(Integer, primary_key=True)
+    tid = Column(String(100, nullable=False))
+    tweet = Column(String(300), nullable=False)
+    user_id =
+    coordinates =
+    user =
+    created_at =
+    favourite_count =
+    in_reply_to_screen_name = Column(String)
+    in_reply_to_status_id = Column(Integer)
+    in_reply_to_user_id = Column(Integer)
+    lang = Column(String)
+    quoted_status_id = Column(Integer)
+    retweet_count = Column(Integer)
+
+
