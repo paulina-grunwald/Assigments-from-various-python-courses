@@ -42,7 +42,7 @@ class Tweet(Base):
     id = Column(Integer, primary_key=True)
     tid = Column(String(100, nullable=False))
     tweet = Column(String(300), nullable=False)
-    user_id =
+    user_id = Column(Integer, ForeignKey)
     coordinates =
     user =
     created_at =
@@ -53,5 +53,13 @@ class Tweet(Base):
     lang = Column(String)
     quoted_status_id = Column(Integer)
     retweet_count = Column(Integer)
+    source = Column(String)
+    is_retweet = Column(Boolean)
+    hashtags = relationships('Hashtag',
+                             secondary = 'hashtag_tweet',
+                             back_populates = 'tweets')
+
+    def __repr__(self):
+        return '<Tweet {}>'.format(self.id)
 
 
