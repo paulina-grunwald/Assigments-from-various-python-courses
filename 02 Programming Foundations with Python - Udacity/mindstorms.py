@@ -3,30 +3,38 @@
 
 import turtle
 
-def draw_square():
+def draw_square(some_turtle):
+    #remember that range will count from 1 to 4
+    for i in range(1,5):
+        some_turtle.forward(100)
+        some_turtle.right(90)
+
+def draw_art():
     #turtle.Screen() - class defines graphics windows as a playground for the drawing turtles.nes
     # graphics windows as a playground for the drawing turtles.
     window = turtle.Screen()
     #Set or return background color of the window
     window.bgcolor("red")
 
-    #draw  a squere
-    pen = turtle.Turtle()
+    #create first turtle Ben
+    ben = turtle.Turtle()
     #select shape
-    pen.shape("turtle")
+    ben.shape("turtle")
     #select color
-    pen.color("green")
+    ben.color("green")
     #select speed
-    pen.speed("normal")
-    pen.forward(100)
-    pen.right(90)
-    pen.forward(100)
-    pen.right(90)
-    pen.forward(100)
-    pen.right(90)
-    pen.forward(100)
+    ben.speed("normal")
+    #use function draw_square using ben turtle
+    draw_square(ben)
 
+    #create second turtle Josh
+    josh = turtle.Turtle()
+    josh.shape("arrow")
+    josh.color("yellow")
+    josh.speed("normal")
+    josh.circle(100)
     #exit programme
     window.exitonclick()
 
-draw_square()
+draw_art()
+
