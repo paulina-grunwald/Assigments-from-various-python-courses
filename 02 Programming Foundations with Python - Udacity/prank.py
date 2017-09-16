@@ -3,8 +3,20 @@
 import os
 def rename_files():
     #find all the file names from the folder
-    file_names = os.listdir(r"C:\Personal\GitHub\Python-course-assigments\02 Programming Foundations with Python - Udacity\prank")
-    #get the files from a folder
-    print(file_names)
+    #os.listdir() lists all in the directory
+
+    file_list = os.listdir(r"C:\Personal\GitHub\Python-course-assigments\02 Programming Foundations with Python - Udacity\prank")
+    #change file names
+    saved_path = os.getcwd()
+    print("Current working drectory is"+saved_path)
+    os.chdir(r"C:\Personal\GitHub\Python-course-assigments\02 Programming Foundations with Python - Udacity\prank")
+    print(file_list)
+
+    #for each file, rename filename
+    for file_name in file_list:
+        print("Old Name - "+file_name)
+        print("New Name - "+file_name.translate(None, "0123456789"))
+        os.rename(file_name, file_name.translate(None, "0123456789"))
+    os.chdir(saved_path)
 
 rename_files()
