@@ -24,6 +24,7 @@ def draw_art():
     ben.color("green")
     #select speed
     ben.speed("normal")
+
     #use function draw_square using ben turtle
     draw_square(ben)
 
